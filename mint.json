@@ -1,0 +1,11 @@
+docker run --name es  -d  \
+          -v ./es-data:/es-node/es-data \
+          -e ES_NODE_STORAGE_MINER=0x5311c090f2D7a08f70FA44C9195831337312b3Af \
+          -e ES_NODE_SIGNER_PRIVATE_KEY=426a62ffd23f3921bc6055fc9c64295dc28784b0e9e467ba4d19f2bbe6d203e1 \
+          -p 9545:9545 \
+          -p 9222:9222 \
+          -p 30305:30305/udp \
+          --entrypoint /es-node/run.sh \
+          ghcr.io/ethstorage/es-node:v0.1.13 \
+          --l1.rpc https://ethereum-sepolia.blockpi.network/v1/rpc/4ccccf874a31dd2d64f66c61b26a18cec3c9dcf6 \
+          --l1.beacon 填入教程申请的quicknode beacon rpc
